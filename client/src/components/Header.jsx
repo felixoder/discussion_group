@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <Navbar className="font-semibold border-b  ">
       <Link
-        className="whitespace-nowrap !font-bold text-lg lg:ml-20 sm:ml-10 px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white"
+        className="whitespace-nowrap !font-bold text-lg lg:ml-20 sm:ml-10 px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg font-serif text-white"
         to="/"
       >
         FelixUnderflow
