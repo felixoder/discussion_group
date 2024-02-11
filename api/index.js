@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import authRoutes from './routes/auth.route.js'
 const app = express();
+app.use(express.json())
 
 
 
