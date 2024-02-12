@@ -14,6 +14,7 @@ import {AiOutlineSearch} from 'react-icons/ai';
 import {FaSun , FaMoon} from 'react-icons/fa'
 import { useLocation } from "react-router-dom";
 import { FaStackOverflow } from "react-icons/fa";
+import { signOutSuccess } from "../redux/user/userSlice";
 
 export default function Header() {
   const path = useLocation().pathname;
@@ -21,6 +22,26 @@ export default function Header() {
   const {currentUser} = useSelector(state => state.user)
   const {theme} = useSelector(state => state.theme)
   const dispatch = useDispatch()
+  const handleSignOut = async ()=>{
+    try {
+      const res = await fetch('/api/user/signout',{
+        method:'POST'
+  
+      })
+      const data = await res.json();
+      if(!res.ok){
+        console.log(data.message);
+      }
+      else{
+        dispatch(signOutSuccess())
+  
+      }
+      
+    } catch (error) {
+      console.log(error.message);
+      
+    }
+  }
   return (
     <Navbar className="border-b-2 ">
       <Link
@@ -74,7 +95,7 @@ export default function Header() {
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
             <Dropdown.Divider />
-            <Dropdown.Item >Sign out</Dropdown.Item>
+            <Dropdown.Item onClick={handleSignOut}>Sign out</Dropdown.Item>
           </Dropdown>
         ) : (
           <Link to='/sign-in'>
