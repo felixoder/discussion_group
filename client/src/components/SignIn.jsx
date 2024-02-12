@@ -48,7 +48,7 @@ export default function SignIn() {
         <div className='flex-1'>
         <Link
         to="/"
-        className="flex gap-1 items-center self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
+        className="flex gap-1 items-center self-center whitespace-nowrap  sm:text-4xl font-semibold dark:text-white text-4xl"
       >
         <FaStackOverflow />
       <span className="text-black-800 font-bold">
@@ -105,7 +105,7 @@ export default function SignIn() {
                 </>
               ):(
                 
-              Sign-In
+              'Sign-In'
               )}
             </Button>
 
