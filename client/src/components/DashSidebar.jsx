@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { HiUser  , HiDocumentText , HiOutlineUserGroup , HiAnnotation , HiArrowSmRight , HiChartPie} from 'react-icons/hi';
 import { CiEdit } from "react-icons/ci";
-import { signOutSuccess } from '../redux/user/userSlice';
+
 export default function DashSidebar() {
     const {currentUser} = useSelector((state)=> state.user)
     const [tab, setTab] = useState('');
@@ -46,7 +46,7 @@ export default function DashSidebar() {
                   </Sidebar.Item>
                 </Link>
                 </>
-              )} {currentUser && (
+              )} {currentUser.isAdmin && (
                 <>
                    <Link to='/dashboard?tab=users'>
                   <Sidebar.Item active={tab === 'users'} icon={HiOutlineUserGroup} as='div'>
