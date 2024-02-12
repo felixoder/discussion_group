@@ -2,7 +2,8 @@ import React from "react";
 import { Link , useNavigate} from "react-router-dom";
 import { Label, TextInput, Button, Alert, Spinner } from "flowbite-react";
 import { useState } from "react";
-
+import { FaStackOverflow } from "react-icons/fa";
+import OAuth from "./OAuth";
 
 
 export default function SignUp() {
@@ -48,11 +49,22 @@ export default function SignUp() {
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
         {/* left */}
         <div className="flex-1">
-          <Link to="/" className="font-bold dark:text-white text-4xl">
-            <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white font-serif">
-              FelixUnderflow
-            </span>
-          </Link>
+        <Link
+        to="/"
+        className="flex gap-1 items-center self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
+      >
+        <FaStackOverflow />
+      <span className="text-black-800 font-bold">
+
+          Felix
+      </span>
+        <span className="px-1 text-orange-500 font-bold">
+        Underflow
+        </span>
+        
+        
+       
+      </Link>
           <p className="text-sm mt-5">
             Hey welcome to your new discussion app where you can solve your
             problem and post your issues on web to get the perfect solution from
@@ -96,6 +108,7 @@ export default function SignUp() {
               )
               }
             </Button>
+            <OAuth/>
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Already Have an account?</span>
