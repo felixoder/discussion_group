@@ -2,7 +2,7 @@ import { useSelector , useDispatch } from "react-redux";
 import { SlCalender } from "react-icons/sl";
 import { Button, Modal } from "flowbite-react";
 import { Link } from "react-router-dom";
-import { signOutSuccess } from "../redux/user/userSlice";
+import { deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutSuccess } from "../redux/user/userSlice";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import {useState} from 'react'
 export default function DashProfile() {
