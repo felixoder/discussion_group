@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import {Alert, Button, Select, TextInput} from 'flowbite-react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export default function Questions() {
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
+  const [publishSuccess , setPublishSuccess] = useState(null)
+ 
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
+   
     e.preventDefault();
     try {
       const res = await fetch('/api/post/create', {
@@ -22,11 +25,15 @@ export default function Questions() {
         setPublishError(data.message);
         return;
       }
-
       if (res.ok) {
         setPublishError(null);
-        navigate(`/post/${data.slug}`);
+        setPublishSuccess('Question posted successfully');
+        setTimeout(() => {
+          // Navigate to the desired page after 2 seconds
+          navigate("/main?tab=home");
+        }, 1000);
       }
+      
     } catch (error) {
       setPublishError('Something went wrong');
     }
@@ -47,7 +54,7 @@ export default function Questions() {
             setFormData({ ...formData, title: e.target.value })
           }
         />
-        <TextInput type='text' placeholder='tag' required id='tag' onChange={(e) =>
+        <TextInput type='text' placeholder='tag' className='w-[200px]' required id='tag' onChange={(e) =>
             setFormData({ ...formData, tag: e.target.value })
           }/>
       </div>
@@ -68,6 +75,10 @@ export default function Questions() {
  {publishError && (
         <Alert className='mt-5' color='failure'>
           {publishError}
+        </Alert>
+      )}  {publishSuccess && (
+        <Alert className='mt-5' color='success'>
+          {publishSuccess}
         </Alert>
       )} 
     </form>

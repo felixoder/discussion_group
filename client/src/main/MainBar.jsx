@@ -44,6 +44,10 @@ export default function MainBar() {
       {/* for question asking page  */}
       
       {tab==='questions' && <Questions/>}
+
+     
+
+
       
       
     </div>
