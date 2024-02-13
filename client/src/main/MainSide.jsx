@@ -4,13 +4,17 @@ import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import {
   HiUser,
-  HiDocumentText,
-  HiOutlineUserGroup,
+ 
   HiAnnotation,
   HiArrowSmRight,
   HiChartPie,
 } from "react-icons/hi";
 import { CiEdit } from "react-icons/ci";
+import {BsQuestionSquare} from 'react-icons/bs';
+import {PiSuitcaseSimple} from 'react-icons/pi';
+import {CiStar} from 'react-icons/ci';
+import {HiOutlineUserGroup} from 'react-icons/hi';
+import {IoHomeOutline} from 'react-icons/io5'
 
 export default function MainSide() {
   const { currentUser } = useSelector((state) => state.user);
@@ -29,12 +33,12 @@ export default function MainSide() {
 
       <Sidebar className="w-full md:w-56">
         <Sidebar.Items >
-          <Sidebar.ItemGroup className="flex flex-col gap-1 ">
+          <Sidebar.ItemGroup className="flex flex-col gap-2 ">
             {currentUser && (
               <Link to="/main?tab=home">
                 <Sidebar.Item
                   active={tab === "home" || !tab }
-                  icon={HiChartPie}
+                  icon={IoHomeOutline}
                   as="div"
                 >
                   Home
@@ -45,7 +49,7 @@ export default function MainSide() {
               <Link to="/main?tab=community">
                 <Sidebar.Item
                   active={tab === "community"  }
-                  icon={HiChartPie}
+                  icon={HiOutlineUserGroup}
                   as="div"
                 >
                   Community
@@ -60,7 +64,7 @@ export default function MainSide() {
                 <Link to="/main?tab=collections">
                   <Sidebar.Item
                     active={tab === "collections"}
-                    icon={CiEdit}
+                    icon={CiStar}
                     labelColor="dark"
                     as="div"
                   >
@@ -70,7 +74,7 @@ export default function MainSide() {
                 <Link to="/main?tab=jobs">
                   <Sidebar.Item
                     active={tab === "jobs"}
-                    icon={HiDocumentText}
+                    icon={PiSuitcaseSimple}
                     as="div"
                   >
                     Find Jobs
@@ -85,7 +89,7 @@ export default function MainSide() {
                 <Link to="/main?tab=questions">
                   <Sidebar.Item
                     active={tab === "questions"}
-                    icon={HiAnnotation}
+                    icon={BsQuestionSquare}
                     as="div"
                   >
                     Ask Questions
