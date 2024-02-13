@@ -3,6 +3,7 @@ import {useLocation} from 'react-router-dom';
 import DashProfile from './DashProfile';
 import DashSidebar from './DashSidebar';
 import EditProfile from '../edit/EditProfile';
+import YourPost from './YourPost';
 
 
 export default function Dashboard() {
@@ -29,7 +30,7 @@ export default function Dashboard() {
       {/* edit */}
       {tab==='edit' && <EditProfile/>}
       {/* posts */}
-      {/* {tab === 'posts'} */}
+    {tab === 'posts' && <YourPost/>} 
       {/* users */}
       {/* {tab === 'users' && <DashUsers/>} */}
       {/* comments */}

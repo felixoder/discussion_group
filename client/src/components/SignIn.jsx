@@ -33,7 +33,7 @@ export default function SignIn() {
       }
       if(res.ok){
         dispatch(signInSuccess(data));
-        navigate('/main')
+        navigate('/main?tab=home')
       }
     } catch (error) {
       dispatch(signInFailure(error.message))

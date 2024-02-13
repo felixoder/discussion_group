@@ -3,22 +3,27 @@ import {Alert, Button, Select, TextInput} from 'flowbite-react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useNavigate } from 'react-router-dom';
+import {useSelector} from 'react-redux'
 export default function Questions() {
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
   const [publishSuccess , setPublishSuccess] = useState(null)
- 
+ const {currentUser} = useSelector((state)=> state.user)
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
-   
     e.preventDefault();
     try {
+      const postData = {
+        ...formData,
+        createdBy: currentUser.username // Set the createdBy field
+      };
+  
       const res = await fetch('/api/post/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(postData),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -33,11 +38,11 @@ export default function Questions() {
           navigate("/main?tab=home");
         }, 1000);
       }
-      
     } catch (error) {
       setPublishError('Something went wrong');
     }
   };
+  
   return (
     
     <div className='p-3 w-full mx-auto min-h-screen'>
@@ -53,7 +58,15 @@ export default function Questions() {
           onChange={(e) =>
             setFormData({ ...formData, title: e.target.value })
           }
-        />
+        /><TextInput
+        type='text'
+        placeholder='Created By'
+        required
+        id='createdBy'
+        value={currentUser.username}
+        className='mb-5'
+      />
+      
         <TextInput type='text' placeholder='tag' className='w-[200px]' required id='tag' onChange={(e) =>
             setFormData({ ...formData, tag: e.target.value })
           }/>

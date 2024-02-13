@@ -116,3 +116,13 @@ export const signout = (req, res, next) => {
     }
   };
   
+
+ export  const getPostWithUserInfo = async (postId) => {
+    try {
+        const post = await Post.findById(postId).populate('userId', 'name');
+        return post;
+    } catch (error) {
+        console.error('Error fetching post:', error);
+        return null;
+    }
+};

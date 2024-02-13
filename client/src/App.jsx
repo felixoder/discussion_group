@@ -11,6 +11,7 @@ import Home from './components/Home';
 import MainSide from './main/MainSide';
 import Main from './main/Main';
 import MainBar from './main/MainBar';
+import PostCard from './main/PostCard';
 
 export default function App() {
   return (
@@ -18,7 +19,7 @@ export default function App() {
       <Header />
       <Routes>
         
-        <Route  path="/" element={<Home/>} />
+        <Route  path="/" element={<Main/>} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<About />} />
@@ -32,6 +33,7 @@ export default function App() {
       
           
         <Route  path="/main" element={<MainBar/>} />
+        <Route path='/post/:postslug'  element={<PostCard/>}/>
         </Route>
       </Routes>
     </>
