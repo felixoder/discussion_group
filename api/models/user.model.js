@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 const userSchema = new mongoose.Schema(
     {
+        fullname:{
+            type:String,
+            default:'Anonymous'
+        
+        },
         username:{
             type: String,
             required: true,
