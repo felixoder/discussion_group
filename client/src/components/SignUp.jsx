@@ -51,7 +51,9 @@ export default function SignUp() {
         <div className="flex-1">
         <Link
         to="/"
-        className="flex gap-1 items-center self-center whitespace-nowrap  sm:text-4xl font-semibold dark:text-white text-4xl"
+        className="flex gap-1 items-center self-center whitespace-nowrap  sm:text-4
+        
+        xl font-semibold dark:text-white text-4xl"
       >
         <FaStackOverflow />
       <span className="text-black-800 font-bold">

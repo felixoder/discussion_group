@@ -45,7 +45,7 @@ export default function Header() {
   return (
     <Navbar className="border-b-2 ">
       <Link
-        to="/"
+        to="/main"
         className="flex gap-1 items-center self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
         <FaStackOverflow />
@@ -108,7 +108,7 @@ export default function Header() {
       </div>
       <Navbar.Collapse>
         <Navbar.Link active={path === '/'} as={'div'}>
-          <Link to='/'>Home</Link>
+          <Link to='/main'>Home</Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/about'} as={'div'}>
           <Link to='/about'>About</Link>

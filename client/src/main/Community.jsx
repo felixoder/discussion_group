@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Home() {
+export default function Community() {
   return (
     <div>
-      This is home
+      Community
     </div>
   )
 }
