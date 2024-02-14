@@ -43,7 +43,7 @@ export default function Header() {
     }
   }
   return (
-    <Navbar className="border-b-2 ">
+    <Navbar className="border-b-2 sticky top-0 w-full">
       <Link
         to="/main?tab=home"
         className="flex gap-1 items-center self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"

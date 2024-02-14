@@ -61,3 +61,31 @@ export const likeAnswer = async (req , res , next)=>{
         next(error)
     }
 }
+
+
+export const getAnswers = async (req, res, next) => {
+    if (!req.user)
+      return next(errorHandler(403, 'You are not allowed to get all answers'));
+    try {
+      const startIndex = parseInt(req.query.startIndex) || 0;
+      const limit = parseInt(req.query.limit) || 9;
+      const sortDirection = req.query.sort === 'desc' ? -1 : 1;
+      const answers = await Answer.find()
+        .sort({ createdAt: sortDirection })
+        .skip(startIndex)
+        .limit(limit);
+      const totalAnswers = await Answer.countDocuments();
+      const now = new Date();
+      const oneMonthAgo = new Date(
+        now.getFullYear(),
+        now.getMonth() - 1,
+        now.getDate()
+      );
+      const lastMonthAnswers = await Answer.countDocuments({
+        createdAt: { $gte: oneMonthAgo },
+      });
+      res.status(200).json({ answers, totalAnswers, lastMonthAnswers });
+    } catch (error) {
+      next(error);
+    }
+  };

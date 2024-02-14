@@ -12,10 +12,12 @@ import MainSide from './main/MainSide';
 import Main from './main/Main';
 import MainBar from './main/MainBar';
 import PostCard from './main/PostCard';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   return (
     <>
+     <ScrollToTop/>
       <Header />
       <Routes>
         

@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom'
 import Main from './Main'
 import Jobs from './Jobs'
 import Questions from './Questions'
+import AnotherBar from './AnotherBar'
 
 export default function MainBar() {
   const location = useLocation();
@@ -22,7 +23,7 @@ export default function MainBar() {
 
   },[location.search])
   return (
-    <div className='min-h-screen flex flex-col md:flex-row'>
+    <div className='min-h-screen flex flex-col sm:flex-row '>
       <div className="mid:w-56">
 
         {/* sidebar */}
@@ -44,7 +45,11 @@ export default function MainBar() {
       {/* for question asking page  */}
       
       {tab==='questions' && <Questions/>}
+      <div className="mid:w-[-56] hidden md:block">
 
+{/* sidebar */}
+<AnotherBar/>
+</div>
      
 
 

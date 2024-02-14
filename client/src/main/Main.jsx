@@ -45,7 +45,7 @@ export default function Home() {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-4 w-full">
+    <div className="grid grid-cols-1 gap-4 w-full ">
       <h1 className='text-center font-bold text-4xl'>All Questions</h1>
       
       {loading ? (
@@ -58,7 +58,7 @@ export default function Home() {
                 <h2 className="text-2xl font-bold truncate">{post.title}</h2>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {post.tag.split(' ').map((tag, index) => (
-                    <Button key={index} gradientDuoTone='purpleToBlue' outline className='mt-2'>{tag}</Button>
+                    <div key={index} color='transparent'  className='dark:bg-slate-700 bg-slate-100 rounded-md mt-2 border-b-20  text-sm text-[#7B8EC8]'>#{tag}</div>
                   ))}
                 </div>
                 <div className="flex justify-between mt-2">
@@ -72,6 +72,9 @@ export default function Home() {
           </Link>
         ))
       )}
+      
     </div>
+    
+    
   );
 }
