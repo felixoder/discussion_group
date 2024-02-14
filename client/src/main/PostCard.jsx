@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button, Spinner } from "flowbite-react";
+import AnswerSection from "../answer/AnswerSection";
 
 export default function PostCard() {
   const { postslug } = useParams();
@@ -79,7 +80,7 @@ export default function PostCard() {
         className="p-3 max-w-2xl mx-auto w-full post-content"
         dangerouslySetInnerHTML={{ __html: post && post.content }}
       ></div>
-      {/* <CommentSection postId={post?._id} /> */}
+   <AnswerSection postId={post?._id} /> 
     </main>
   );
 }
