@@ -3,7 +3,7 @@ import moment from "moment";
 import { FaThumbsUp } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
-export default function Answer({ answer }) {
+export default function Answer({ answer , onLike  }) {
   const [user, setUser] = useState({});
   const { currentUser } = useSelector((state) => state.user);
 

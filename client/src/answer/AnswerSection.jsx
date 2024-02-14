@@ -63,7 +63,33 @@ export default function AnswerSection({ postId }) {
     };
     getAnswers();
   }, [postId]);
-
+  const handleLike = async (answerId) => {
+    try {
+      if (!currentUser) {
+        navigate("/sign-in");
+        return;
+      }
+      const res = await fetch(`/api/answer/likeAnswer/${answerId}`, {
+        method: "PUT",
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setAnswers(
+          answers.map((answer) =>
+            answer._id === answerId
+              ? {
+                  ...answer,
+                  likes: data.likes,
+                  numberOfLikes: data.likes.length,
+                }
+              : answer
+          )
+        );
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <div>
       <div className="max-w-2xl mx-auto w-full p-3">
@@ -146,6 +172,7 @@ export default function AnswerSection({ postId }) {
                     key={singleAnswer._id}
                     answer={singleAnswer}
                     dangerouslySetInnerHTML={{ __html: singleAnswer.content }}
+                    onLike={handleLike}
                   />
                 ))}
               </>
