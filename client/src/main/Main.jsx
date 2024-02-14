@@ -1,6 +1,6 @@
-import { Spinner, Button } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Spinner, Button } from 'flowbite-react';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -49,14 +49,18 @@ export default function Home() {
       <h1 className='text-center font-bold text-4xl'>All Questions</h1>
       
       {loading ? (
-        <Spinner />
+        <Spinner className='flex flex-col mx-auto items-center justify-center' size='xl'/>
       ) : (
         posts.map((post) => (
           <Link to={`/post/${post.slug}`} key={post._id} className="hover:cursor-pointer">
             <div className="border-transparent p-4 rounded-md h-[200px] mt-5 ml-5 mr-5 dark:bg-gray-800 bg-slate-50">
               <div className="">
                 <h2 className="text-2xl font-bold truncate">{post.title}</h2>
-                <Button gradientDuoTone='purpleToBlue' outline className='mt-2'>{post.tag}</Button>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {post.tag.split(' ').map((tag, index) => (
+                    <Button key={index} gradientDuoTone='purpleToBlue' outline className='mt-2'>{tag}</Button>
+                  ))}
+                </div>
                 <div className="flex justify-between mt-2">
                   <div className="flex flex-col items-center gap-2">
                     <p className="mt-4 text-sm text-white-400 font-semibold"><strong className='font-semibold'></strong> {post.createdBy}</p>
