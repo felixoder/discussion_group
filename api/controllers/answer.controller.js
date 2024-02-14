@@ -35,3 +35,29 @@ export const getPostAnswers = async (req , res , next)=>{
 
 }
 
+
+export const likeAnswer = async (req , res , next)=>{
+    try {
+        const answer = await Answer.findById(req.params.answerId);
+        if(!answer){
+            return next(errorHandler(404 , 'Cannot found'))
+
+        }
+        const userIndex = answer.likes.indexOf(req.user.id);
+        if(userIndex === -1){
+            answer.numberOfLikes +=1 ;
+
+            answer.likes.push(req.user.id);
+            
+
+        }
+        else{
+            answer.numberOfLikes -= 1;
+            answer.likes.splice(userIndex, 1);
+        }
+        await answer.save();
+        res.status(200).json(answer)
+    } catch (error) {
+        next(error)
+    }
+}
