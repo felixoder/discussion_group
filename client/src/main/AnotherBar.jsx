@@ -12,8 +12,9 @@ import {
     FaLinkedin
   
 } from "react-icons/fa";
+
 import { FaXTwitter } from "react-icons/fa6";
-import {SiRedux ,SiMongodb , SiFirebase  , SiExpress } from 'react-icons/si'
+import {SiRedux ,SiMongodb , SiFirebase  , SiExpress , SiTailwindcss  } from 'react-icons/si'
 
 
 export default function AnotherBar() {
@@ -53,6 +54,10 @@ export default function AnotherBar() {
                <li className="flex items-center">
                  <FaNodeJs className="mr-2" />
                  <span>Node.js</span>
+               </li>
+               <li className="flex items-center">
+                 <SiTailwindcss  className="mr-2" />
+                 <span>Tailwind-CSS</span>
                </li>
                <li className="flex items-center">
                  <SiExpress className="mr-2" />
@@ -105,6 +110,7 @@ export default function AnotherBar() {
                
                {/* Add more technologies as needed */}
              </ul>
+             
            </Sidebar.Item>
            </>
                 

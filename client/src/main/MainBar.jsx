@@ -11,6 +11,7 @@ import Jobs from './Jobs'
 import Questions from './Questions'
 import AnotherBar from './AnotherBar'
 
+
 export default function MainBar() {
   const location = useLocation();
   const [tab, setTab] = useState('')
@@ -45,6 +46,8 @@ export default function MainBar() {
       {/* for question asking page  */}
       
       {tab==='questions' && <Questions/>}
+      {/* for help me  */}
+      
       <div className="mid:w-[-56] hidden md:block">
 
 {/* sidebar */}

@@ -15,6 +15,7 @@ import {PiSuitcaseSimple} from 'react-icons/pi';
 import {CiStar} from 'react-icons/ci';
 import {HiOutlineUserGroup} from 'react-icons/hi';
 import {IoHomeOutline} from 'react-icons/io5'
+import {FaHandsHelping } from 'react-icons/fa'
 
 export default function MainSide() {
   const { currentUser } = useSelector((state) => state.user);
@@ -84,6 +85,15 @@ export default function MainSide() {
                     as="div"
                   >
                     Ask Questions
+                  </Sidebar.Item>
+                </Link>
+                <Link to="https://rzp.io/l/m6e6CaggWq">
+                  <Sidebar.Item
+                    
+                    icon={FaHandsHelping }
+                    as="div"
+                  >
+                    Help Me
                   </Sidebar.Item>
                 </Link>
               </>
