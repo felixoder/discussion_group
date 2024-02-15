@@ -14,6 +14,7 @@ import MainBar from './main/MainBar';
 import PostCard from './main/PostCard';
 import ScrollToTop from './components/ScrollToTop';
 
+
 export default function App() {
   return (
     <>
@@ -24,6 +25,7 @@ export default function App() {
         <Route  path="/" element={<Main/>} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+       
         <Route path="/about" element={<About />} />
         <Route  element={<OnlyPrivateRoute />}>
        

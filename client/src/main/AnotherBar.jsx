@@ -8,7 +8,8 @@ import {
     FaBrain,
     
     FaInstagram,
-    FaGithub
+    FaGithub,
+    FaLinkedin
   
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -23,7 +24,7 @@ export default function AnotherBar() {
   return (
 
       <Sidebar className="w-full md:w-56">
-        <Sidebar.Items className="md:fixed">
+        <Sidebar.Items className="md:fixed mt-[130px]">
           <Sidebar.ItemGroup className="flex flex-col gap-2  ">
             {currentUser && (
              <>
@@ -91,6 +92,13 @@ export default function AnotherBar() {
                 
                  <FaGithub className="mr-2" />
                  <span>Github</span>
+                </Link>
+               </li>
+               <li className="flex items-center">
+                <Link to='https://www.linkedin.com/in/debayan-ghosh-1671b4224/' className="flex justify-center items-center" target="__blank">
+                
+                 <FaLinkedin className="mr-2" />
+                 <span>Linkedin</span>
                 </Link>
                </li>
                

@@ -61,16 +61,7 @@ export default function MainSide() {
 
             {currentUser && (
               <>
-                <Link to="/main?tab=collections">
-                  <Sidebar.Item
-                    active={tab === "collections"}
-                    icon={CiStar}
-                    labelColor="dark"
-                    as="div"
-                  >
-                    Collections
-                  </Sidebar.Item>
-                </Link>
+               
                 <Link to="/main?tab=jobs">
                   <Sidebar.Item
                     active={tab === "jobs"}

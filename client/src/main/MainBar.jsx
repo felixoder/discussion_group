@@ -4,7 +4,7 @@ import DashProfile from '../components/DashProfile'
 import Home from '../components/Home'
 import EditProfile from '../edit/EditProfile'
 import Community from './Community'
-import Collections from './Collections'
+
 import { useLocation } from 'react-router-dom'
 import Main from './Main'
 import Jobs from './Jobs'
@@ -37,7 +37,7 @@ export default function MainBar() {
 
       {/* for collections page */}
  
-      {tab==='collections' && <Collections/>}
+ 
 
       {/* for jobs page */}
 
