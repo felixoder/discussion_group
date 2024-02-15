@@ -87,7 +87,7 @@ export default function MainSide() {
                     Ask Questions
                   </Sidebar.Item>
                 </Link>
-                <Link to="https://rzp.io/l/m6e6CaggWq">
+                <Link to="https://rzp.io/l/m6e6CaggWq" target="__blank">
                   <Sidebar.Item
                     
                     icon={FaHandsHelping }
